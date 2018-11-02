@@ -57,3 +57,45 @@ https://github.com/qtumproject/qtum-bitcore/blob/master/doc/sparknet-guide.md
 
 ## Deploying Smart Contract on Qtum network
 https://github.com/qtumproject/qtum-bitcore/blob/master/doc/sparknet-guide.md 
+
+-------------
+
+- `git clone https://github.com/qtumproject/qtum.git --recursive
+- `cd qtum`
+- `./autogen.sh`
+- `./configure`
+- `make -j8`
+
+
+### Import in Eclipse
+
+- 
+
+### Configure the `qtum.conf` file
+```
+rpcuser=test  #rpc user name, (necessary)
+rpcpassword=test1234  #rpc password, (necessary)
+regtest=1
+testnet=0
+# By default, only local jsonrpc is allowed
+# Remote connection is allowed only when setting rpcallowip as following:
+# both ipv4 and ipv6 can be set, e.g.:
+#rpcallowip=192.168.77.51/255.255.255.0
+#rpcallowip=1.2.3.4/24
+#rpcallowip=2001:db8:85a3:0:0:8a2e:370:7334/96
+
+```
+
+###  seed the chain with 600 blocks
+- `qcli generate 600`
+
+Note: QTUM's proof-of-stake reward is unspendable until it "matures" after 500 blocks. By generating 600 blocks, we get 100 matured block rewards, of 20k QTUM each.
+
+
+- `qcli getbalance`
+
+
+http://book.qtum.site/en/part1/qtum-docker.html#new-blocks-on-demand 
+
+ 
+ 
